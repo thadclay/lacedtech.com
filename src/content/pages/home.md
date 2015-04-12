@@ -1,5 +1,5 @@
 ---
 title: Home
-template: home.jade
+template: page.jade
 ---
 Coming soon!!!

@@ -1,0 +1,66 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Home - Laced Tech
+    // Bootstrap Core CSS
+    block styles
+      link(href='/css/bootstrap.min.css', rel='stylesheet')
+      link(href='/css/blog-home.css', rel='stylesheet')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    block header
+      include ./header
+    .container
+      .row
+        // Blog Entries Column
+        .col-md-8
+          h1.page-header
+            | Laced Tech 
+            small The latest on shoes and tech blah blah blah.
+          - console.log(collections)
+          - each post in collections.posts
+            h2
+              a(href=post.path) #{post.title}
+            p.lead
+              | by #{post.author}
+            p
+              span.glyphicon.glyphicon-time
+              |  Posted on #{helpers.prettyDate(post.date)}
+            hr
+            img.img-responsive(src=post.headerImage, alt='')
+            hr
+            != post.excerpt
+            a.btn.btn-primary(href=post.path, rel='bookmark')
+              | Read More 
+              span.glyphicon.glyphicon-chevron-right
+            hr
+          // Pager
+          ul.pager
+            li.previous
+              a(href='#') &larr; Older
+            li.next
+              a(href='#') Newer &rarr;
+        // Blog Sidebar Widgets Column
+        //.col-md-4
+        //  include ./sidebar
+      // /.row
+      hr
+      // Footer
+      footer
+        include ./footer
+          // /.col-lg-12
+        // /.row
+    // /.container
+    // jQuery
+    block scripts
+      script(src='/js/jquery.js')
+      script(src='/js/bootstrap.min.js')

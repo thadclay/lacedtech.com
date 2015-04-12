@@ -1,0 +1,25 @@
+.row
+  article
+    header
+      h2.post-title
+        a(href=post.path) #{post.title}
+      span.post-dateline
+        a(href=post.path)
+          time #{helpers.prettyDate(post.date)}
+        span.delimiter  / 
+      span.post-byline
+        span.author
+          | #{post.author}
+      .col-md-4
+        a.excerpt-image(href=post.path)
+          img.img-responsive(src=post.excerptImage, alt=post.excerptImageAlt)
+      .col-md-8
+        != post.excerpt
+        span.read-more
+          a(href=post.path) Read More
+    footer.article-footer
+      span.comments
+        a(href=post.path + '#comments')
+          i.glyphicon.glyphicon-comment
+          | Comment
+      hr

@@ -1,0 +1,24 @@
+article
+  .content-wrapper
+    .post
+      header
+        span.article-dateline-above-title
+          span.date
+            a(href=post.path)
+              time #{helpers.shortDate(post.date)}
+            span.delimiter  / 
+          span.article-byline
+            span.location
+            span.author
+              | #{post.author}
+      
+      .excerpt-thumbnail
+        .content
+          a.excerpt-image(href=post.path)
+            img.img-responsive(src=post.indexImage, alt='')
+      .body.entry-content.excerpt-content
+        != post.excerpt
+        span.read-more
+          a(href=post.path) Read More
+      footer
+        div

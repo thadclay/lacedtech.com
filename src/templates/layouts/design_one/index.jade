@@ -1,0 +1,31 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Home - Laced Tech
+    block styles
+      link(href='/css/bootstrap.min.css', rel='stylesheet')
+      link(href='/css/blog-home.css', rel='stylesheet')
+      link(href='/css/design_one.css', rel='stylesheet')
+  body
+    block header
+      include ./header
+    .container
+      .row
+        .col-md-8
+          h1.page-header
+            | Laced Tech 
+            small My take on sneakers and tech.
+          - each post in collections.posts
+            include mixins/post_excerpt
+
+              //h2 #{post.title}
+              //img.img-responsive(src=post.indexImage, alt='')
+              //p #{helpers.shortDate(post.date)}
+
+        .col-md-4
+          include ./sidebar

@@ -1,4 +1,4 @@
 ---
-template: home.jade
+template: layouts/design_one/index.jade
 ---
 Coming soon!!!

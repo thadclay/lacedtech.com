@@ -3,11 +3,12 @@ var markdown = require('metalsmith-markdown');
 var templates = require('metalsmith-templates');
 var collections = require('metalsmith-collections');
 var permalinks = require('metalsmith-permalinks');
+var serve = require('metalsmith-serve');
 var paginate = require('metalsmith-paginate');
 var drafts = require('metalsmith-drafts');
 var excerpts = require('metalsmith-excerpts');
-//var convert = require('metalsmith-convert');
-//var imagemin = require('metalsmith-imagemin');
+var convert = require('metalsmith-convert');
+var imagemin = require('metalsmith-imagemin');
 var moment = require('moment');
 var externalWatch = require('metalsmith-external-watch');
 var ignore = require('metalsmith-ignore');
@@ -26,10 +27,10 @@ externalWatch(function() {
     //  quality: 50,
     //  blur: 5
     //}))
-    //.use(imagemin({
-    //  optimizationLevel: 3,
-    //  svgoPlugins: [{ removeViewBox: false }]
-    //}))
+    .use(imagemin({
+      optimizationLevel: 3,
+      svgoPlugins: [{ removeViewBox: false }]
+    }))
     .use(collections({
       pages: { pattern: 'content/pages/*.md' },
       posts: {
